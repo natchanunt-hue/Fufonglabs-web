@@ -8,11 +8,15 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false); // State สำหรับเปิด/ปิด Popup
 
-  // ฟังก์ชันจำลองการกดส่งข้อความ
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("ขอบคุณที่ติดต่อ Fufong Labs ระบบได้รับข้อความของคุณแล้วครับ");
-    setIsContactOpen(false); // ส่งเสร็จแล้วปิด Popup
+    setIsSubmitted(true); // แสดงสถานะสำเร็จ
+    setTimeout(() => {
+      setIsContactOpen(false);
+      setIsSubmitted(false);
+    }, 2500);
   };
 
   return (
@@ -21,7 +25,7 @@ export default function Navbar() {
         <Link href="/" className="relative flex items-center group">
           <div className="absolute -left-2 -top-10 w-24 h-24 bg-gradient-to-br from-[#ffffff] to-[#333333] rounded-2xl border border-white/20 flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.1)] group-hover:scale-105 transition-all duration-300">
             <Image 
-              src="/logo (1).png" 
+              src="/logo.png" 
               alt="Fufong Labs Logo" 
               width={120}
               height={120} 
@@ -91,6 +95,13 @@ export default function Navbar() {
             <h3 className="text-2xl font-bold mb-2 text-white">Get in touch</h3>
             <p className="text-sm text-gray-400 mb-6">ทิ้งข้อมูลไว้ให้เราติดต่อกลับ หรือนัดหมายพูดคุยโปรเจกต์</p>
             
+            {isSubmitted ? (
+  <div className="py-12 text-center space-y-4 animate-in fade-in zoom-in duration-300">
+    <div className="text-emerald-500 text-6xl">✓</div>
+    <h3 className="text-2xl font-bold text-white">Message Sent!</h3>
+    <p className="text-gray-400">เจ้าหน้าที่ของเราจะติดต่อกลับหาคุณทางอีเมลโดยเร็วที่สุด</p>
+  </div>
+) : (
             <form onSubmit={handleSendMessage} className="space-y-4">
               <div>
                 <label className="block text-xs text-gray-400 mb-1 ml-1">Email</label>
@@ -108,6 +119,7 @@ export default function Navbar() {
                 Send Message
               </button>
             </form>
+            )}
           </div>
         </div>
       )}

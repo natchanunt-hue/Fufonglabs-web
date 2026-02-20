@@ -6,7 +6,7 @@ export default function Home() {
       {/* 1. Hero Section */}
       <section className="mb-20 text-center md:text-left relative">
         <div className="absolute -top-20 -left-20 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[100px] -z-10"></div>
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-gray-300 to-gray-600">
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-normal mb-6 text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-gray-300 to-gray-600">
           Software Performance <br /> & Deep Tech R&D
         </h1>
         <p className="text-gray-400 text-lg md:text-xl max-w-2xl font-light leading-relaxed">

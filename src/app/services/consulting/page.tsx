@@ -57,7 +57,7 @@ export default function ConsultingPage() {
         <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
           ให้ทีมวิศวกรของ Fufong Labs ช่วยประเมินและวางแผนโครงสร้างระบบของคุณ
         </p>
-        <a href="mailto:info@fufonglabs.com" className="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-200 transition-colors inline-block">
+        <a href="#" className="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-200 transition-colors inline-block">
           ติดต่อนัดหมายรับคำปรึกษา
         </a>
       </div>
