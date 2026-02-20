@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function EngineeringServicePage() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white font-sans pt-32 px-6 md:px-16 max-w-6xl mx-auto">
+    <div>
       <Link href="/" className="text-gray-400 hover:text-white mb-8 inline-block">&larr; Back to Home</Link>
       
       <h1 className="text-4xl md:text-6xl font-bold mb-6">Software R&D and Performance Engineering</h1>

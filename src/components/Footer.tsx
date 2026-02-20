@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 export default function Footer() {
@@ -22,9 +24,7 @@ export default function Footer() {
                 แขวงดอกไม้ เขตประเวศ กรุงเทพมหานคร 10250
               </p>
             </div>
-            <p className="pl-6 font-mono text-xs opacity-70">
-              เลขทะเบียนนิติบุคคล: 0105565099446
-            </p>
+
             <div className="pl-6 flex gap-4 text-xs font-semibold uppercase tracking-widest text-emerald-500/80">
               <span>Active Entity</span>
               <span>Est. 2022</span>
@@ -47,18 +47,30 @@ export default function Footer() {
           <h4 className="text-white font-semibold mb-4">Company</h4>
           <ul className="space-y-3 text-sm text-gray-400">
             <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
-            <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-            <li><a href="https://www.linkedin.com/company/fufonglabs" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a></li>
+            <li>
+  <button 
+    onClick={() => window.dispatchEvent(new Event('openContactPopup'))} 
+    className="hover:text-white transition-colors text-left"
+  >
+    Contact Us
+  </button>
+</li>
+            <li><a href="https://www.linkedin.com/company/fufong-labs/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a></li>
           </ul>
         </div>
       </div>
 
-      {/* Copyright Section - ที่หายไปกลับมาแล้วครับ */}
-      <div className="max-w-6xl mx-auto border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-gray-600">
-        <p>© {currentYear} Fufong Labs Co., Ltd. All rights reserved.</p>
+      {/* ส่วนลิขสิทธิ์และลิงก์ด้านล่างสุดของ Footer */}
+      <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
+        <div>
+          © {new Date().getFullYear()} Fufong Labs Co., Ltd. All rights reserved.
+        </div>
+        
+        {/* เพิ่ม Link href="/about" เข้าไปตรงนี้ครับ */}
         <div className="flex gap-6 mt-4 md:mt-0">
-          <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-          <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+          <Link href="/about" className="hover:text-white transition-colors">About Us</Link>
+          <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+          <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
         </div>
       </div>
     </footer>

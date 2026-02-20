@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       */}
       <body className={`${prompt.className} bg-[#050505] text-white selection:bg-indigo-500/30 antialiased min-h-screen flex flex-col relative overflow-x-hidden`}>
         <Navbar />
-        <main className="flex-grow w-full max-w-6xl mx-auto px-6 md:px-16 pt-36 pb-20">
+        <main className="grow w-full max-w-6xl mx-auto px-6 md:px-16 pt-47 pb-20">
           {children}
         </main>
         <Footer />

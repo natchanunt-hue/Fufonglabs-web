@@ -1,8 +1,10 @@
+"use client";
+
 import Link from "next/link";
 
 export default function ConsultingPage() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white font-sans pt-32 px-6 md:px-16 max-w-6xl mx-auto pb-20">
+    <div>
       <Link href="/" className="text-gray-400 hover:text-white mb-8 inline-flex items-center gap-2 transition-colors">
         <span>&larr;</span> Back to Home
       </Link>
@@ -12,7 +14,7 @@ export default function ConsultingPage() {
         <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">Architecture Consulting</h1>
         <p className="text-xl text-gray-400 max-w-3xl leading-relaxed">
           บริการให้คำปรึกษาและออกแบบสถาปัตยกรรมระบบองค์กร (Enterprise Architecture) 
-          เจาะลึกถึงระดับโครงสร้าง เพื่อค้นหาและขจัดปัญหาที่ฉุดรั้งประสิทธิภาพระบบของคุณ
+          เจาะลึกถึงระดับโครงสร้าง เพื่อค้นหาและขจัดปัญหาที่รั้งประสิทธิภาพของระบบ
         </p>
       </div>
 
@@ -57,9 +59,14 @@ export default function ConsultingPage() {
         <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
           ให้ทีมวิศวกรของ Fufong Labs ช่วยประเมินและวางแผนโครงสร้างระบบของคุณ
         </p>
-        <a href="#" className="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-200 transition-colors inline-block">
+        
+        {/* เปลี่ยนจาก <a> เป็น <button> และใส่ onClick เพื่อยิง Event */}
+        <button 
+          onClick={() => window.dispatchEvent(new Event('openContactPopup'))}
+          className="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-200 transition-colors inline-block cursor-pointer"
+        >
           ติดต่อนัดหมายรับคำปรึกษา
-        </a>
+        </button>
       </div>
     </div>
   );
