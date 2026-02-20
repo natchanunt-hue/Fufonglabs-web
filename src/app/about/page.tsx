@@ -72,7 +72,7 @@ export default function AboutPage() {
         <div className="bg-white/5 p-8 rounded-3xl border border-white/10 flex flex-col md:flex-row gap-8 items-start hover:border-white/20 transition-colors">
           
           {/* รูปวงกลมขนาดเล็ก (32x32 = 128px) */}
-          <div className="relative w-32 h-32 flex-shrink-0 group">
+          <div className="relative w-32 h-32 shrink-0 group">
             <div className="absolute inset-0 bg-indigo-600/20 rounded-full blur-[20px] -z-10 group-hover:bg-indigo-500/40 transition-all duration-500"></div>
             <div className="w-full h-full rounded-full overflow-hidden border-2 border-[#1a1a1a] ring-1 ring-white/10 relative">
               <Image

@@ -32,14 +32,14 @@ export default function Footer() {
           </div>
         </div>
         
-        {/* Quick Links */}
+        {/* Quick Links (แทนที่ของเดิมใน Footer.tsx) */}
         <div>
-          <h4 className="text-white font-semibold mb-4">Services & R&D</h4>
-          <ul className="space-y-3 text-sm text-gray-400">
-            <li><Link href="/services/ecommerce" className="hover:text-white transition-colors">E-Commerce Architecture</Link></li>
-            <li><Link href="/services/consulting" className="hover:text-white transition-colors">Architecture Consulting</Link></li>
-            <li><Link href="/academic" className="hover:text-white transition-colors">Cloud Matrix & Research</Link></li>
-          </ul>
+              <h4 className="text-white font-semibold mb-6 tracking-wider text-sm">COMPANY</h4>
+              <ul className="space-y-4 text-sm text-gray-400">
+                <li><Link href="/services" className="hover:text-white transition-colors">Our Expertise (Services)</Link></li>
+                <li><Link href="/academic" className="hover:text-white transition-colors">Academic Research</Link></li>
+                <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
+              </ul>
         </div>
 
         {/* Company Links */}

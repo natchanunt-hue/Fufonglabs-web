@@ -36,7 +36,7 @@ export default function CareersPage() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
         
         {/* Flexible Hours */}
-        <div className="bg-white/5 p-6 rounded-3xl border border-white/10 text-center flex flex-col items-center justify-center group hover:bg-white/[0.08] transition-colors">
+        <div className="bg-white/5 p-6 rounded-3xl border border-white/10 text-center flex flex-col items-center justify-center group hover:bg-white/8 transition-colors">
           <div className="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center mb-4 text-indigo-400 group-hover:scale-110 transition-transform">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
@@ -45,7 +45,7 @@ export default function CareersPage() {
         </div>
 
         {/* Hybrid / WFH */}
-        <div className="bg-white/5 p-6 rounded-3xl border border-white/10 text-center flex flex-col items-center justify-center group hover:bg-white/[0.08] transition-colors">
+        <div className="bg-white/5 p-6 rounded-3xl border border-white/10 text-center flex flex-col items-center justify-center group hover:bg-white/8 transition-colors">
           <div className="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-4 text-blue-400 group-hover:scale-110 transition-transform">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </div>
@@ -54,7 +54,7 @@ export default function CareersPage() {
         </div>
 
         {/* Health Insurance */}
-        <div className="bg-white/5 p-6 rounded-3xl border border-white/10 text-center flex flex-col items-center justify-center group hover:bg-white/[0.08] transition-colors">
+        <div className="bg-white/5 p-6 rounded-3xl border border-white/10 text-center flex flex-col items-center justify-center group hover:bg-white/8 transition-colors">
           <div className="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-4 text-emerald-400 group-hover:scale-110 transition-transform">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
@@ -63,7 +63,7 @@ export default function CareersPage() {
         </div>
 
         {/* Performance Bonus */}
-        <div className="bg-white/5 p-6 rounded-3xl border border-white/10 text-center flex flex-col items-center justify-center group hover:bg-white/[0.08] transition-colors">
+        <div className="bg-white/5 p-6 rounded-3xl border border-white/10 text-center flex flex-col items-center justify-center group hover:bg-white/8 transition-colors">
           <div className="w-12 h-12 bg-amber-500/10 rounded-2xl flex items-center justify-center mb-4 text-amber-400 group-hover:scale-110 transition-transform">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
           </div>
@@ -91,7 +91,7 @@ export default function CareersPage() {
               <span className="bg-white/10 px-2 py-1 rounded">Vercel</span>
             </div>
           </div>
-          <button onClick={() => handleApply("Frontend Developer")} className="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-gray-200 transition-colors w-full md:w-auto flex-shrink-0">
+          <button onClick={() => handleApply("Frontend Developer")} className="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-gray-200 transition-colors w-full md:w-auto shrink-0">
             Apply Now
           </button>
         </div>
@@ -118,7 +118,7 @@ export default function CareersPage() {
           {/* ปรับปุ่มให้กดไม่ได้ (Disabled) และเปลี่ยนสีเป็นเทา */}
           <button 
             disabled 
-            className="bg-white/10 text-gray-500 px-6 py-3 rounded-full font-bold cursor-not-allowed w-full md:w-auto flex-shrink-0"
+            className="bg-white/10 text-gray-500 px-6 py-3 rounded-full font-bold cursor-not-allowed w-full md:w-auto shrink-0"
           >
             Closed
           </button>
@@ -128,7 +128,7 @@ export default function CareersPage() {
       {/* Application Popup */}
       <AnimatePresence>
         {isApplyOpen && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setIsApplyOpen(false)} />
             
             <motion.div initial={{ opacity: 0, scale: 0.95, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95, y: 20 }} transition={{ type: "spring", damping: 25, stiffness: 300 }} className="relative bg-[#111] border border-white/10 p-8 rounded-3xl w-full max-w-md shadow-2xl overflow-hidden">

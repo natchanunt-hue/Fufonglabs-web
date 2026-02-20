@@ -13,7 +13,7 @@ export default function AcademicPage() {
       </p>
 
       {/* Symposium Section */}
-      <div className="bg-gradient-to-r from-[#111] to-[#0a0a0a] p-8 rounded-3xl border border-white/10 mb-16">
+      <div className="bg-linear-to-r from-[#111] to-[#0a0a0a] p-8 rounded-3xl border border-white/10 mb-16">
         <h2 className="text-2xl font-bold mb-2 text-white">16th Symposium on Software Performance (SSP) 2025</h2>
         <p className="text-blue-400 mb-4 font-mono text-sm">📍 Kiel, Germany</p>
         <p className="text-gray-300 leading-relaxed">
@@ -29,7 +29,7 @@ export default function AcademicPage() {
         {/* Blog 1: Cloud Architecture */}
         <div 
           onClick={() => window.open('https://arxiv.org/abs/2205.07421', '_blank')}
-          className="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-indigo-500/50 hover:bg-white/[0.08] transition-all cursor-pointer group flex flex-col h-full relative overflow-hidden"
+          className="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-indigo-500/50 hover:bg-white/8 transition-all cursor-pointer group flex flex-col h-full relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 p-6">
             <svg className="w-5 h-5 text-gray-600 group-hover:text-indigo-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -38,7 +38,7 @@ export default function AcademicPage() {
           <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-indigo-300 transition-colors pr-8">
             Julia Cloud Matrix Machine: การสเกล Cluster บนคลาวด์
           </h3>
-          <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+          <p className="text-gray-400 text-sm leading-relaxed mb-6 grow">
             งานวิจัยการออกแบบสถาปัตยกรรม Dynamic Matrix Machine เพื่อเพิ่มประสิทธิภาพการประมวลผลบนคลาวด์คลัสเตอร์ (Multicore Clusters) รองรับ Data-intensive Application ขนาดใหญ่ได้อย่างยืดหยุ่น
           </p>
           <span className="text-indigo-400 text-sm font-semibold mt-auto flex items-center gap-2">
@@ -49,7 +49,7 @@ export default function AcademicPage() {
         {/* Blog 2: Parallel Execution */}
         <div 
           onClick={() => window.open('https://www.researchgate.net/publication/345733666_JParEnt_Parallel_entropy_decoding_for_JPEG_decompression_on_heterogeneous_multicore_architectures', '_blank')}
-          className="bg-gradient-to-br from-white/5 to-white/[0.02] p-8 rounded-3xl border border-white/10 hover:border-emerald-500/50 hover:from-white/[0.08] hover:to-white/[0.05] transition-all cursor-pointer group flex flex-col h-full relative overflow-hidden"
+          className="bg-linear-to-br from-white/5 to-white/2 p-8 rounded-3xl border border-white/10 hover:border-emerald-500/50 hover:from-white/8 hover:to-white/5 transition-all cursor-pointer group flex flex-col h-full relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 p-6">
             <svg className="w-5 h-5 text-gray-600 group-hover:text-emerald-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
@@ -58,7 +58,7 @@ export default function AcademicPage() {
           <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-emerald-300 transition-colors pr-8">
             JParEnt: ทลายขีดจำกัดด้วย Parallel Processing
           </h3>
-          <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+          <p className="text-gray-400 text-sm leading-relaxed mb-6 grow">
             การถอดรหัสข้อมูลแบบขนาน (Parallel Entropy Decoding) บนสถาปัตยกรรมมัลติคอร์ เพื่อลดความซับซ้อนและหั่นเวลาตอบสนอง (Response Time) ในระบบประมวลผลประสิทธิภาพสูง
           </p>
           <span className="text-emerald-400 text-sm font-semibold mt-auto flex items-center gap-2">
@@ -76,7 +76,7 @@ export default function AcademicPage() {
           {/* Paper 1: Kronecker Algebra */}
           <div 
             onClick={() => window.open('https://www.researchgate.net/publication/318802826_Lazy_Parallel_Kronecker_Algebra-Operations_on_Heterogeneous_Multicores?_sg=5m-T8Yv1q4biBTAwJnTVIoQCqiXLC2ymv1U48DCVRtDAc3QfxKvKz4ABePmtAxI3WN7c1Ysr4lqrEkc&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6Il9kaXJlY3QifX0', '_blank')}
-            className="border-l-2 border-indigo-500/30 pl-6 py-4 hover:border-indigo-500 hover:bg-white/[0.02] transition-all group cursor-pointer"
+            className="border-l-2 border-indigo-500/30 pl-6 py-4 hover:border-indigo-500 hover:bg-white/2 transition-all group cursor-pointer"
           >
             <h4 className="text-lg font-bold text-gray-200 group-hover:text-white transition-colors">
               Lazy Parallel Kronecker Algebra-Operations on Heterogeneous Multicores
@@ -92,7 +92,7 @@ export default function AcademicPage() {
           {/* Paper 2: Dynamic Partitioning */}
           <div 
             onClick={() => window.open('https://www.researchgate.net/publication/290868422_Design_implementation_and_evaluation_of_a_task-parallel_JPEG_decoder_for_the_Libjpeg-turbo_library?_sg=GKzflWNS0ziznlFwJFmg70O6hoLl-epM1xPSSkYxvHVHoPx_b_acdM31NV6LR1-tgR0eFX9HYdvCanA&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6Il9kaXJlY3QifX0', '_blank')}
-            className="border-l-2 border-emerald-500/30 pl-6 py-4 hover:border-emerald-500 hover:bg-white/[0.02] transition-all group cursor-pointer"
+            className="border-l-2 border-emerald-500/30 pl-6 py-4 hover:border-emerald-500 hover:bg-white/2 transition-all group cursor-pointer"
           >
             <h4 className="text-lg font-bold text-gray-200 group-hover:text-white transition-colors">
               Dynamic Partitioning-based JPEG Decompression on Heterogeneous Multicores
@@ -108,7 +108,7 @@ export default function AcademicPage() {
           {/* Paper 3: SPARK */}
           <div 
             onClick={() => window.open('https://www.researchgate.net/publication/320867297_SPARK_Static_Program_Analysis_Reasoning_and_Retrieving_Knowledge?_sg=pblZfm572LnM931mJTpKmYnoYcP44TGqmmQzNkk8V0YU-ISvvoUo2jPtrYAx3OqnaIJV3V9hQNjv4oE&_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6Il9kaXJlY3QifX0', '_blank')}
-            className="border-l-2 border-blue-500/30 pl-6 py-4 hover:border-blue-500 hover:bg-white/[0.02] transition-all group cursor-pointer"
+            className="border-l-2 border-blue-500/30 pl-6 py-4 hover:border-blue-500 hover:bg-white/2 transition-all group cursor-pointer"
           >
             <h4 className="text-lg font-bold text-gray-200 group-hover:text-white transition-colors">
               SPARK: Static Program Analysis Reasoning and Retrieving Knowledge

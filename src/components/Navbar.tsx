@@ -49,7 +49,7 @@ export default function Navbar() {
 
         {/* Desktop Menu & Contact Button */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
-          <Link href="/services/ecommerce" className="hover:text-white transition-colors py-2">Services</Link>
+          <Link href="/services" className="hover:text-white transition-colors py-2">Services</Link>
           <Link href="/academic" className="hover:text-white transition-colors py-2">R&D Center</Link>
           <Link href="/careers" className="hover:text-white transition-colors py-2">Careers</Link>
           
@@ -85,7 +85,7 @@ export default function Navbar() {
             className="fixed inset-0 z-30 bg-black/95 flex flex-col items-center justify-center gap-8 md:hidden"
           >
             <Link href="/about" onClick={() => setIsMenuOpen(false)} className="text-2xl text-gray-300 hover:text-white">About Us</Link>
-            <Link href="/services/ecommerce" onClick={() => setIsMenuOpen(false)} className="text-2xl text-gray-300 hover:text-white">Services</Link>
+            <Link href="/services" onClick={() => setIsMenuOpen(false)} className="text-2xl text-gray-300 hover:text-white">Services</Link>
             <Link href="/academic" onClick={() => setIsMenuOpen(false)} className="text-2xl text-gray-300 hover:text-white">R&D Center</Link>
             <Link href="/careers" onClick={() => setIsMenuOpen(false)} className="text-2xl text-gray-300 hover:text-white">Careers</Link>
             <button 
