@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import HeroPulse from "@/components/animations/HeroPulse";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       {/* 1. Hero Section */}
       <section className="mb-15 text-center md:text-left relative">
         <div className="absolute -top-20 -left-20 w-125 h-125 bg-blue-900/10 rounded-full blur-[100px] -z-10"></div>
+        <HeroPulse /> {/* ก๊อปปี้บรรทัดนี้ไปวางแทรกตรงนี้ */}
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-wider mb-6 text-transparent bg-clip-text bg-linear-to-r from-gray-100 via-gray-300 to-gray-600">
           Engineering the Future of <br /> <span className="text-indigo-400">AI & Scalability</span>
         </h1>

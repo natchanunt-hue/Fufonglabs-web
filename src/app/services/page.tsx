@@ -1,6 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import RAGAnimation from "@/components/animations/RAGAnimation";
+import DataPipeline from "@/components/animations/DataPipeline";
+import MLModel from "@/components/animations/MLModel";
+import TrafficFlow from "@/components/animations/TrafficFlow";
+import DevOpsGrid from "@/components/animations/DevOpsGrid";
 
 export default function ServicesMasterPage() {
   return (
@@ -36,30 +41,33 @@ export default function ServicesMasterPage() {
           
           <div className="grid md:grid-cols-3 gap-6">
             {/* Symbolic 1: RAG */}
-            <div className="bg-[#111] p-6 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all group">
-              <div className="mb-4 text-indigo-400 bg-indigo-500/10 w-10 h-10 flex items-center justify-center rounded-lg group-hover:scale-110 transition-transform">
+            <div className="bg-[#111] p-6 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all group relative overflow-hidden">
+              <RAGAnimation />
+              <div className="mb-4 text-indigo-400 bg-indigo-500/10 w-10 h-10 flex items-center justify-center rounded-lg group-hover:scale-110 transition-transform relative z-10">
                 <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">RAG & Conversational AI</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">เชื่อมต่อ Large Language Models (LLM) เข้ากับฐานข้อมูลองค์กร สร้างบอทที่ตอบคำถามแม่นยำ ไร้อาการมั่วข้อมูล (Hallucination)</p>
+              <h3 className="text-lg font-bold text-white mb-2 relative z-10">RAG & Conversational AI</h3>
+              <p className="text-sm text-gray-500 leading-relaxed relative z-10">เชื่อมต่อ Large Language Models (LLM) เข้ากับฐานข้อมูลองค์กร สร้างบอทที่ตอบคำถามแม่นยำ ไร้อาการมั่วข้อมูล (Hallucination)</p>
             </div>
             
             {/* Symbolic 2: Data Pipeline */}
-            <div className="bg-[#111] p-6 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all group">
-              <div className="mb-4 text-indigo-400 bg-indigo-500/10 w-10 h-10 flex items-center justify-center rounded-lg group-hover:scale-110 transition-transform">
+            <div className="bg-[#111] p-6 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all group relative overflow-hidden">
+              <DataPipeline />
+              <div className="mb-4 text-indigo-400 bg-indigo-500/10 w-10 h-10 flex items-center justify-center rounded-lg group-hover:scale-110 transition-transform relative z-10">
                 <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">Data Engineering</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">วางโครงสร้าง ETL/ELT จัดการข้อมูลดิบให้กลายเป็น Data Lake/Warehouse ที่พร้อมสำหรับการทำ Machine Learning</p>
+              <h3 className="text-lg font-bold text-white mb-2 relative z-10">Data Engineering</h3>
+              <p className="text-sm text-gray-500 leading-relaxed relative z-10">วางโครงสร้าง ETL/ELT จัดการข้อมูลดิบให้กลายเป็น Data Lake/Warehouse ที่พร้อมสำหรับการทำ Machine Learning</p>
             </div>
 
             {/* Symbolic 3: Custom Models */}
-            <div className="bg-[#111] p-6 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all group">
-              <div className="mb-4 text-indigo-400 bg-indigo-500/10 w-10 h-10 flex items-center justify-center rounded-lg group-hover:scale-110 transition-transform">
+            <div className="bg-[#111] p-6 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all group relative overflow-hidden">
+              <MLModel />
+              <div className="mb-4 text-indigo-400 bg-indigo-500/10 w-10 h-10 flex items-center justify-center rounded-lg group-hover:scale-110 transition-transform relative z-10">
                 <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">Specialized ML Models</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">ฝึกสอน (Train) โมเดลเฉพาะทาง เช่น Medical ASR (แปลงเสียงทางการแพทย์) หรือ Predictive Maintenance เพื่อพยากรณ์ล่วงหน้า</p>
+              <h3 className="text-lg font-bold text-white mb-2 relative z-10">Specialized ML Models</h3>
+              <p className="text-sm text-gray-500 leading-relaxed relative z-10">ฝึกสอน (Train) โมเดลเฉพาะทาง เช่น Medical ASR (แปลงเสียงทางการแพทย์) หรือ Predictive Maintenance เพื่อพยากรณ์ล่วงหน้า</p>
             </div>
           </div>
         </div>
@@ -86,16 +94,17 @@ export default function ServicesMasterPage() {
         <div className="grid md:grid-cols-12 gap-6 items-stretch">
           
           {/* ซ้าย: Little's Law */}
-          <div className="col-span-12 md:col-span-5 bg-[#0a0a0a] p-8 md:p-10 rounded-3xl border border-white/10 flex flex-col justify-center relative overflow-hidden">
+          <div className="col-span-12 md:col-span-5 bg-[#0a0a0a] p-8 md:p-10 rounded-3xl border border-white/10 flex flex-col justify-center relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
-            <h3 className="text-2xl font-bold mb-4 text-emerald-400">Little's Law in Action</h3>
-            <p className="text-gray-400 leading-relaxed mb-6 text-sm">
+            <TrafficFlow /> {/* เพิ่ม TrafficFlow ตรงนี้ */}
+            <h3 className="text-2xl font-bold mb-4 text-emerald-400 relative z-10">Little's Law in Action</h3>
+            <p className="text-gray-400 leading-relaxed mb-6 text-sm relative z-10">
               เราสเกลระบบด้วยหลักคณิตศาสตร์ (Queueing Theory) เพื่อหาจุดสมดุลของการประมวลผล ไม่ใช่การสุ่มเพิ่ม Server อย่างไร้ทิศทาง
             </p>
-            <div className="bg-black/50 p-6 rounded-2xl font-mono text-center text-2xl text-white border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.05)] mb-4">
+            <div className="bg-black/50 p-6 rounded-2xl font-mono text-center text-2xl text-white border border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.05)] mb-4 relative z-10">
               <span className="text-emerald-400">L</span> = λ × <span className="text-emerald-400">W</span>
             </div>
-            <ul className="text-xs text-gray-500 space-y-2 mt-2">
+            <ul className="text-xs text-gray-500 space-y-2 mt-2 relative z-10">
               <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> บริหาร Arrival Rate (λ) ทราฟฟิกขาเข้า</li>
               <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> ลด Response Time (W) ระยะเวลารอ</li>
             </ul>
@@ -133,12 +142,13 @@ export default function ServicesMasterPage() {
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Architecture & DevOps</h2>
         </div>
         
-        <div className="bg-[#0a0a0a] p-8 md:p-10 rounded-3xl border border-white/10">
-          <p className="text-gray-400 leading-relaxed mb-10 text-lg max-w-4xl">
+        <div className="bg-[#0a0a0a] p-8 md:p-10 rounded-3xl border border-white/10 relative overflow-hidden">
+          <DevOpsGrid />
+          <p className="text-gray-400 leading-relaxed mb-10 text-lg max-w-4xl relative z-10">
             เจาะลึกทะลุโค้ดเพื่อแก้ปัญหาที่ฉุดรั้งองค์กร (Technical Debt) เราออกแบบสถาปัตยกรรมใหม่ให้เบา เร็ว และวางระบบส่งมอบซอฟต์แวร์ (Deploy) ที่ทำงานแทนคน
           </p>
           
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4 relative z-10">
             
             <div className="flex gap-4 p-4 rounded-2xl hover:bg-white/5 transition-colors group">
               <div className="text-blue-500 mt-1 bg-blue-500/10 p-2 rounded-lg h-fit group-hover:scale-110 transition-transform">

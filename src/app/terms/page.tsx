@@ -1,4 +1,9 @@
 import Link from "next/link";
+import type { Metadata } from "next"; // ก๊อปบรรทัดนี้เพิ่ม
+
+export const metadata: Metadata = { // ก๊อปบล็อกนี้เพิ่ม
+  title: "Terms of Service",
+};
 
 export default function TermsPage() {
   return (
