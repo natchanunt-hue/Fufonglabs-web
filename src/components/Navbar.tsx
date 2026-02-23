@@ -84,7 +84,6 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-30 bg-black/95 flex flex-col items-center justify-center gap-8 md:hidden"
           >
-            <Link href="/about" onClick={() => setIsMenuOpen(false)} className="text-2xl text-gray-300 hover:text-white">About Us</Link>
             <Link href="/services" onClick={() => setIsMenuOpen(false)} className="text-2xl text-gray-300 hover:text-white">Services</Link>
             <Link href="/academic" onClick={() => setIsMenuOpen(false)} className="text-2xl text-gray-300 hover:text-white">R&D Center</Link>
             <Link href="/careers" onClick={() => setIsMenuOpen(false)} className="text-2xl text-gray-300 hover:text-white">Careers</Link>
