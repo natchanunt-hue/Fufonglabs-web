@@ -1,7 +1,9 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
-// คอนฟิกของคุณ
+// เพิ่ม Console.log เพื่อเช็คว่ามันดึงค่ามาจาก .env.local ได้ไหม
+console.log("เช็ค Firebase Domain:", process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN);
+
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -12,12 +14,10 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
-// ป้องกันการ Initialize ซ้ำเมื่อเปลี่ยนหน้าใน Next.js
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
-// บังคับให้เลือกบัญชี Google ทุกครั้ง (เหมาะกับกรณีมีหลายอีเมล)
 googleProvider.setCustomParameters({
   prompt: 'select_account'
 });
