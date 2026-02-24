@@ -10,19 +10,30 @@ import DevOpsGrid from "@/components/animations/DevOpsGrid";
 
 export default function ServicesMasterPage() {
   
-  // 2. เพิ่มบล็อก useEffect ตรงนี้
-  useEffect(() => {
-    // เช็คว่ามี hash บน URL ไหม (เช่น #ecommerce, #consulting)
+useEffect(() => {
     const hash = window.location.hash;
-    if (hash) {
-      // ตั้งเวลาหน่วง 100ms รอให้ Next.js เรนเดอร์ DOM เสร็จสมบูรณ์
-      setTimeout(() => {
-        const element = document.querySelector(hash);
-        if (element) {
+    if (!hash) return;
+
+    let attempts = 0;
+    const maxAttempts = 20; // พยายามหา 20 ครั้ง (รวม 2 วินาที)
+
+    const scrollToHash = () => {
+      const element = document.querySelector(hash);
+      
+      if (element) {
+        // ถ้าเจอ element แล้ว ให้หน่วงอีกนิดนึงให้ภาพมัน Paint เสร็จค่อยเลื่อน
+        setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    }
+        }, 100);
+      } else if (attempts < maxAttempts) {
+        // ถ้ายังไม่เจอ (ติด AuthGuard อยู่) ให้รันตัวเองใหม่ในอีก 100ms
+        attempts++;
+        setTimeout(scrollToHash, 100);
+      }
+    };
+
+    // เริ่มทำงานครั้งแรก
+    scrollToHash();
   }, []);
 
   return (
