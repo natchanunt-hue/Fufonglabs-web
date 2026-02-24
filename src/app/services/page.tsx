@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect } from "react"; // 1. เพิ่มบรรทัดนี้
 import RAGAnimation from "@/components/animations/RAGAnimation";
 import DataPipeline from "@/components/animations/DataPipeline";
 import MLModel from "@/components/animations/MLModel";
@@ -8,6 +9,22 @@ import TrafficFlow from "@/components/animations/TrafficFlow";
 import DevOpsGrid from "@/components/animations/DevOpsGrid";
 
 export default function ServicesMasterPage() {
+  
+  // 2. เพิ่มบล็อก useEffect ตรงนี้
+  useEffect(() => {
+    // เช็คว่ามี hash บน URL ไหม (เช่น #ecommerce, #consulting)
+    const hash = window.location.hash;
+    if (hash) {
+      // ตั้งเวลาหน่วง 100ms รอให้ Next.js เรนเดอร์ DOM เสร็จสมบูรณ์
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, []);
+
   return (
     <div className="max-w-6xl mx-auto pb-20">
       <Link href="/" className="text-gray-400 hover:text-white mb-8 inline-block transition-colors">&larr; Back to Home</Link>
