@@ -14,26 +14,24 @@ useEffect(() => {
     const hash = window.location.hash;
     if (!hash) return;
 
-    let attempts = 0;
-    const maxAttempts = 20; // พยายามหา 20 ครั้ง (รวม 2 วินาที)
-
-    const scrollToHash = () => {
+    // เช็คหา Element ทุกๆ 100ms จนกว่า AuthGuard จะโหลดเสร็จและประกอบร่างหน้าเว็บ
+    const checkExist = setInterval(() => {
       const element = document.querySelector(hash);
       
       if (element) {
-        // ถ้าเจอ element แล้ว ให้หน่วงอีกนิดนึงให้ภาพมัน Paint เสร็จค่อยเลื่อน
+        // พอเจอ Element แล้ว ให้หยุดเช็คทันที
+        clearInterval(checkExist);
+        
+        // หน่วงเวลาอีกนิดนึง (150ms) ให้ Next.js จัดหน้าจอและยื้อแย่ง Scroll ให้เสร็จ
+        // แล้วสั่งเลื่อนแบบ Smooth แค่ "ครั้งเดียว"
         setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      } else if (attempts < maxAttempts) {
-        // ถ้ายังไม่เจอ (ติด AuthGuard อยู่) ให้รันตัวเองใหม่ในอีก 100ms
-        attempts++;
-        setTimeout(scrollToHash, 100);
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 150);
       }
-    };
+    }, 100); // วนหาทุกๆ 0.1 วินาที
 
-    // เริ่มทำงานครั้งแรก
-    scrollToHash();
+    // ล้าง Interval ทิ้งถ้าผู้ใช้เปลี่ยนหน้าหนีก่อน
+    return () => clearInterval(checkExist);
   }, []);
 
   return (
