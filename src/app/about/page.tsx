@@ -89,7 +89,7 @@ export default function AboutPage() {
           <div>
             <h3 className="text-2xl font-bold text-white mb-1">Wasuwee Sodsong</h3>
             <p className="text-indigo-400 font-mono text-xs uppercase tracking-wider mb-4">
-              Lead Software Engineer & Researcher
+              Lead Software Engineer & Managing Director
             </p>
             <p className="text-gray-400 leading-relaxed text-sm max-w-2xl">
               ผู้เชี่ยวชาญด้านสถาปัตยกรรมซอฟต์แวร์ประสิทธิภาพสูงและการประมวลผลแบบขนาน (Parallel Computing) 

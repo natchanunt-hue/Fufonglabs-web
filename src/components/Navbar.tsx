@@ -10,19 +10,15 @@ export default function Navbar() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // เพิ่มบล็อกนี้ลงไป
   useEffect(() => {
     const handleOpenContact = () => setIsContactOpen(true);
-    // รอฟัง Event ที่ชื่อว่า 'openContactPopup'
     window.addEventListener('openContactPopup', handleOpenContact);
-    
-    // คืนค่าเพื่อลบ Event ออกเมื่อ Component ถูกทำลาย
     return () => window.removeEventListener('openContactPopup', handleOpenContact);
   }, []);
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true); // แสดงสถานะสำเร็จ
+    setIsSubmitted(true);
     setTimeout(() => {
       setIsContactOpen(false);
       setIsSubmitted(false);
@@ -31,7 +27,11 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-13 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl h-16 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full z-40 flex items-center justify-between px-6 md:px-10 shadow-[0_10px_40px_rgba(0,0,0,0.3)]">
+      {/* FIX 1: ปรับ z-[120] ให้ Navbar อยู่เหนือเมนูสีดำ (z-[110]) 
+         และใส่ Hardware Acceleration ป้องกันอาการกระพริบ
+      */}
+      <nav className="fixed top-13 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl h-16 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full z-[120] flex items-center justify-between px-6 md:px-10 shadow-[0_10px_40px_rgba(0,0,0,0.3)] transform-gpu backface-hidden will-change-transform">
+        
         <Link href="/" className="relative flex items-center group">
           <div className="absolute -left-2 -top-10 w-24 h-24 bg-linear-to-br from-[#ffffff] to-[#333333] rounded-2xl border border-white/20 flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.1)] group-hover:scale-110 transition-all duration-300">
             <Image 
@@ -47,7 +47,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Menu & Contact Button */}
+        {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
           <Link href="/services" className="hover:text-white transition-colors py-2">Services</Link>
           <Link href="/academic" className="hover:text-white transition-colors py-2">R&D Center</Link>
@@ -61,48 +61,58 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Hamburger Button (Mobile) */}
+        {/* Hamburger / Close Button - ปรับให้เด่นและกดง่ายขึ้น */}
         <button 
-          className="md:hidden text-white focus:outline-none z-50"
+          className="md:hidden text-white focus:outline-none z-[130] p-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
           ) : (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
           )}
         </button>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - z-[110] */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-30 bg-black/95 flex flex-col items-center justify-center gap-8 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[110] bg-black/95 flex flex-col items-center justify-center gap-8 md:hidden"
+            onClick={() => setIsMenuOpen(false)}
           >
-            <Link href="/services" onClick={() => setIsMenuOpen(false)} className="text-2xl text-gray-300 hover:text-white">Services</Link>
-            <Link href="/academic" onClick={() => setIsMenuOpen(false)} className="text-2xl text-gray-300 hover:text-white">R&D Center</Link>
-            <Link href="/careers" onClick={() => setIsMenuOpen(false)} className="text-2xl text-gray-300 hover:text-white">Careers</Link>
-            <button 
-              onClick={() => { setIsMenuOpen(false); setIsContactOpen(true); }}
-              className="px-8 py-3 bg-white text-black text-lg font-bold rounded-full hover:bg-gray-200 mt-4"
+            <motion.div
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+              className="flex flex-col items-center gap-8"
+              onClick={(e) => e.stopPropagation()}
             >
-              Contact Us
-            </button>
+              <Link href="/services" onClick={() => setIsMenuOpen(false)} className="text-3xl text-gray-300 hover:text-white font-bold transition-colors">Services</Link>
+              <Link href="/academic" onClick={() => setIsMenuOpen(false)} className="text-3xl text-gray-300 hover:text-white font-bold transition-colors">R&D Center</Link>
+              <Link href="/careers" onClick={() => setIsMenuOpen(false)} className="text-3xl text-gray-300 hover:text-white font-bold transition-colors">Careers</Link>
+              <button 
+                onClick={() => { setIsMenuOpen(false); setIsContactOpen(true); }}
+                className="px-10 py-4 bg-white text-black text-xl font-bold rounded-full hover:bg-gray-200 mt-4 shadow-xl active:scale-95 transition-transform"
+              >
+                Contact Us
+              </button>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* --- POPUP CONTACT FORM --- */}
+      {/* Popup Contact - z-[150] สูงที่สุด */}
       <AnimatePresence>
         {isContactOpen && (
-          <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
-            
-            {/* พื้นหลังดำๆ เบลอๆ เฟดแบบนุ่มนวล */}
+          <div className="fixed inset-0 z-[150] flex items-center justify-center p-4">
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -110,8 +120,6 @@ export default function Navbar() {
               className="absolute inset-0 bg-black/80 backdrop-blur-sm" 
               onClick={() => setIsContactOpen(false)}
             />
-            
-            {/* ตัวกล่อง Popup ให้มีเอฟเฟกต์ Spring (เด้งเบาๆ) */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -119,15 +127,11 @@ export default function Navbar() {
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               className="relative bg-[#111] border border-white/10 p-8 rounded-3xl w-full max-w-md shadow-2xl overflow-hidden"
             >
-              {/* ปุ่มกากบาท */}
               <button onClick={() => setIsContactOpen(false)} className="absolute top-5 right-5 text-gray-500 hover:text-white transition-colors z-10">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
               </button>
-
               <h3 className="text-2xl font-bold mb-2 text-white relative z-10">Get in touch</h3>
               <p className="text-sm text-gray-400 mb-6 relative z-10">ทิ้งข้อมูลไว้ให้เราติดต่อกลับ หรือนัดหมายพูดคุยโปรเจกต์</p>
-              
-              {/* สลับการแสดงผลระหว่าง ฟอร์ม และ ข้อความสำเร็จ อย่างนุ่มนวล */}
               <AnimatePresence mode="wait">
                 {isSubmitted ? (
                   <motion.div 

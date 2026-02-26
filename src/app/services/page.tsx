@@ -7,6 +7,7 @@ import DataPipeline from "@/components/animations/DataPipeline";
 import MLModel from "@/components/animations/MLModel";
 import TrafficFlow from "@/components/animations/TrafficFlow";
 import DevOpsGrid from "@/components/animations/DevOpsGrid";
+import SocialMediaAnim from "@/components/animations/SocialMediaAnim";
 
 export default function ServicesMasterPage() {
   
@@ -214,6 +215,86 @@ useEffect(() => {
                 <h3 className="text-white font-bold mb-1">Telemetry & Observability</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">ติดตั้งแดชบอร์ด Monitor สถานะ API และ Server แจ้งเตือนความผิดปกติทันทีก่อนที่ลูกค้าจะรู้ตัว</p>
               </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================
+          SECTION 4: Social Media Labs
+          ========================================= */}
+      <section id="socialmedia" className="mb-24 scroll-mt-50 px-4 md:px-0">
+        
+        {/* 💡 ส่วน Header ที่เปลี่ยนไอคอนใหม่ */}
+        <div className="flex items-center gap-4 mb-8">
+          <div className="w-14 h-14 bg-fuchsia-500/10 rounded-2xl flex items-center justify-center text-fuchsia-400 shadow-[0_0_20px_rgba(217,70,239,0.1)] border border-fuchsia-500/20">
+            {/* NEW ICON: Targeted Media Strategy (เป้ายิง + ปุ่ม Play) */}
+            <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" /> {/* วงนอก */}
+              <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" /> {/* วงใน */}
+              <path d="m10 8 6 4-6 4V8z" /> {/* ปุ่ม Play */}
+            </svg>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Social Media Labs</h2>
+        </div>
+        
+        <div className="bg-[#0a0a0a] p-8 md:p-10 rounded-3xl border border-white/10 relative overflow-hidden">
+          {/* แสง Glow มุมขวาบน */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-fuchsia-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center relative z-10">
+            
+            {/* ซ้าย: เนื้อหา */}
+            <div>
+              <p className="text-gray-400 leading-relaxed mb-10 text-lg">
+                ขับเคลื่อนทิศทางการสื่อสารด้วย <strong>Data Science</strong> วิเคราะห์พฤติกรรมผู้ใช้งาน ออกแบบกลยุทธ์ และบริหารจัดการโฆษณา เพื่อให้เนื้อหาเข้าถึงกลุ่มเป้าหมายอย่างมีประสิทธิภาพบนทุกแพลตฟอร์ม
+              </p>
+              
+              <div className="space-y-6">
+                
+                {/* Feature 1 */}
+                <div className="flex gap-4 group">
+                  {/* 💡 ปรับขนาดกล่องไอคอนให้เล็กลงเท่ากับ Section อื่น (p-2 rounded-lg) */}
+                  <div className="text-fuchsia-400 mt-1 bg-fuchsia-500/10 p-2 rounded-lg h-fit group-hover:scale-110 transition-transform">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 20v-6M6 20V10M18 20V4"></path></svg>
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold mb-1">Platform Specific Strategy</h3>
+                    {/* 💡 ปรับฟอนต์เหลือ text-sm ให้เท่ากับกรอบบน */}
+                    <p className="text-gray-500 text-sm leading-relaxed">ออกแบบกลยุทธ์เฉพาะเจาะจงสำหรับแต่ละแพลตฟอร์ม (TikTok, Facebook, IG) ให้สอดคล้องกับกลไกอัลกอริทึมและพฤติกรรมของผู้ใช้งานจริง</p>
+                  </div>
+                </div>
+
+                {/* Feature 2: แก้ไขคำเป็นแนว Consultant */}
+                <div className="flex gap-4 group">
+                  <div className="text-fuchsia-400 mt-1 bg-fuchsia-500/10 p-2 rounded-lg h-fit group-hover:scale-110 transition-transform">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline><polyline points="7.5 19.79 7.5 14.6 3 12"></polyline><polyline points="21 12 16.5 14.6 16.5 19.79"></polyline><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold mb-1">Advertising & Tools</h3>
+                    {/* 💡 เปลี่ยนคำบรรยายให้ดูเป็นที่ปรึกษามากขึ้น */}
+                    <p className="text-gray-500 text-sm leading-relaxed">ให้คำปรึกษาและคัดเลือกเครื่องมือทางการตลาด (MarTech & Tracking) ที่เหมาะสมกับสเกลธุรกิจ เพื่อให้การวัดผล (ROI) และการทำ Retargeting แม่นยำที่สุด</p>
+                  </div>
+                </div>
+
+                {/* Feature 3 */}
+                <div className="flex gap-4 group">
+                  <div className="text-fuchsia-400 mt-1 bg-fuchsia-500/10 p-2 rounded-lg h-fit group-hover:scale-110 transition-transform">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold mb-1">Content Mastery</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">พัฒนาชิ้นงานสื่อ (Artworks / Videos) โดยอิงข้อมูลจากเทรนด์และสถิติ เพื่อสื่อสารภาพลักษณ์แบรนด์ให้ตรงกับความสนใจของกลุ่มเป้าหมาย</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* ขวา: แอนิเมชัน */}
+            <div className="w-full">
+              <SocialMediaAnim />
             </div>
 
           </div>
