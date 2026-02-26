@@ -7,10 +7,11 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-white/10 bg-[#020202] pt-16 pb-8 px-6 md:px-16 w-full mt-auto">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 md:gap-10 mb-12">
         
         {/* Brand & Professional Address */}
-        <div className="md:col-span-2">
+        {/* 🟢 แก้ไขตรงนี้: เพิ่ม col-span-2 เพื่อให้ส่วนนี้กว้างเต็มจอในมือถือ */}
+        <div className="col-span-2 md:col-span-2">
           <h4 className="text-xl font-bold mb-4 tracking-wider text-white">FUFONG LABS CO., LTD.</h4>
           <p className="text-gray-400 text-sm leading-relaxed max-w-md">
             ศูนย์กลางนวัตกรรม (Hub of Innovation) ผู้เชี่ยวชาญด้านสถาปัตยกรรมซอฟต์แวร์และการวิจัยพัฒนาเชิงทดลอง (R&D)
@@ -32,8 +33,9 @@ export default function Footer() {
           </div>
         </div>
         
-        {/* คอลัมน์ที่ 3: EXPERTISE (หมวดบริการและผลงาน) */}
-        <div>
+        {/* คอลัมน์ EXPERTISE */}
+        {/* 🟢 เพิ่ม col-span-1 เพื่อให้กินพื้นที่ครึ่งนึงในมือถือ */}
+        <div className="col-span-1">
           <h4 className="text-white font-semibold mb-6 tracking-wider text-sm uppercase">Expertise</h4>
           <ul className="space-y-4 text-sm text-gray-400">
             <li><Link href="/services" className="hover:text-white transition-colors">Our Services</Link></li>
@@ -41,8 +43,9 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* คอลัมน์ที่ 4: COMPANY (หมวดองค์กรและการติดต่อ) */}
-        <div>
+        {/* คอลัมน์ COMPANY */}
+        {/* 🟢 เพิ่ม col-span-1 เพื่อให้กินพื้นที่อีกครึ่งนึงในมือถือ */}
+        <div className="col-span-1">
           <h4 className="text-white font-semibold mb-6 tracking-wider text-sm uppercase">Company</h4>
           <ul className="space-y-4 text-sm text-gray-400">
             <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>

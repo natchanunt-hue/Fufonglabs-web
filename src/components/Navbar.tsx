@@ -54,7 +54,7 @@ export default function Navbar() {
       {/* FIX 1: ปรับ z-[120] ให้ Navbar อยู่เหนือเมนูสีดำ (z-[110]) 
          และใส่ Hardware Acceleration ป้องกันอาการกระพริบ
       */}
-      <nav className="fixed top-13 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl h-16 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full z-[120] flex items-center justify-between px-6 md:px-10 shadow-[0_10px_40px_rgba(0,0,0,0.3)] transform-gpu backface-hidden will-change-transform">
+      <nav className="fixed top-13 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl h-16 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full z-120 flex items-center justify-between px-6 md:px-10 shadow-[0_10px_40px_rgba(0,0,0,0.3)] transform-gpu backface-hidden will-change-transform">
         
         <Link href="/" className="relative flex items-center group">
           <div className="absolute -left-2 -top-10 w-24 h-24 bg-linear-to-br from-[#ffffff] to-[#333333] rounded-2xl border border-white/20 flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.1)] group-hover:scale-110 transition-all duration-300">
@@ -87,7 +87,7 @@ export default function Navbar() {
 
         {/* Hamburger / Close Button - ปรับให้เด่นและกดง่ายขึ้น */}
         <button 
-          className="md:hidden text-white focus:outline-none z-[130] p-2"
+          className="md:hidden text-white focus:outline-none z-130 p-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? (
@@ -109,7 +109,7 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[110] bg-black/95 flex flex-col items-center justify-center gap-8 md:hidden"
+            className="fixed inset-0 z-110 bg-black/95 flex flex-col items-center justify-center gap-8 md:hidden"
             onClick={() => setIsMenuOpen(false)}
           >
             <motion.div
@@ -136,7 +136,7 @@ export default function Navbar() {
       {/* Popup Contact - z-[150] สูงที่สุด */}
       <AnimatePresence>
         {isContactOpen && (
-          <div className="fixed inset-0 z-[150] flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-150 flex items-center justify-center p-4">
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

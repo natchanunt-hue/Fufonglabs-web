@@ -84,7 +84,7 @@ export default function AcademicPage() {
             <p className="text-gray-500 text-sm mt-1">
               การประมวลผลทางคณิตศาสตร์ขั้นสูงแบบขนานบนระบบ Heterogeneous Multicores (ตีพิมพ์ใน Euro-Par Conference)
             </p>
-            <span className="text-[10px] text-indigo-400 font-mono mt-3 inline-block opacity-0 group-hover:opacity-100 transition-opacity">
+            <span className="text-[10px] text-indigo-400 font-mono mt-3 inline-block opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
               &rarr; View Research Paper on ResearchGate
             </span>
           </div>
@@ -100,7 +100,7 @@ export default function AcademicPage() {
             <p className="text-gray-500 text-sm mt-1">
               อัลกอริทึมการแบ่งงานแบบไดนามิกเพื่อรีดประสิทธิภาพการถอดรหัสรูปภาพบนระบบคอมพิวเตอร์ประสิทธิภาพสูง
             </p>
-            <span className="text-[10px] text-emerald-400 font-mono mt-3 inline-block opacity-0 group-hover:opacity-100 transition-opacity">
+            <span className="text-[10px] text-emerald-400 font-mono mt-3 inline-block opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
               &rarr; View Research Paper on ResearchGate
             </span>
           </div>
@@ -116,7 +116,7 @@ export default function AcademicPage() {
             <p className="text-gray-500 text-sm mt-1">
               งานวิจัยด้านความปลอดภัยซอฟต์แวร์ (Software Security) และการวิเคราะห์ช่องโหว่ของโปรแกรมผ่านกลไก Static Analysis
             </p>
-            <span className="text-[10px] text-blue-400 font-mono mt-3 inline-block opacity-0 group-hover:opacity-100 transition-opacity">
+            <span className="text-[10px] text-blue-400 font-mono mt-3 inline-block opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
               &rarr; View Research Paper on ResearchGate
             </span>
           </div>
