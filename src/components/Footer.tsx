@@ -32,30 +32,38 @@ export default function Footer() {
           </div>
         </div>
         
-        {/* Quick Links (แทนที่ของเดิมใน Footer.tsx) */}
+        {/* คอลัมน์ที่ 3: EXPERTISE (หมวดบริการและผลงาน) */}
         <div>
-              <h4 className="text-white font-semibold mb-6 tracking-wider text-sm">COMPANY</h4>
-              <ul className="space-y-4 text-sm text-gray-400">
-                <li><Link href="/services" className="hover:text-white transition-colors">Our Expertise (Services)</Link></li>
-                <li><Link href="/academic" className="hover:text-white transition-colors">Academic Research</Link></li>
-                <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
-              </ul>
+          <h4 className="text-white font-semibold mb-6 tracking-wider text-sm uppercase">Expertise</h4>
+          <ul className="space-y-4 text-sm text-gray-400">
+            <li><Link href="/services" className="hover:text-white transition-colors">Our Services</Link></li>
+            <li><Link href="/academic" className="hover:text-white transition-colors">Academic Research</Link></li>
+          </ul>
         </div>
 
-        {/* Company Links */}
+        {/* คอลัมน์ที่ 4: COMPANY (หมวดองค์กรและการติดต่อ) */}
         <div>
-          <h4 className="text-white font-semibold mb-4">Company</h4>
-          <ul className="space-y-3 text-sm text-gray-400">
+          <h4 className="text-white font-semibold mb-6 tracking-wider text-sm uppercase">Company</h4>
+          <ul className="space-y-4 text-sm text-gray-400">
             <li><Link href="/careers" className="hover:text-white transition-colors">Careers</Link></li>
             <li>
-  <button 
-    onClick={() => window.dispatchEvent(new Event('openContactPopup'))} 
-    className="hover:text-white transition-colors text-left"
-  >
-    Contact Us
-  </button>
-</li>
-            <li><a href="https://www.linkedin.com/company/fufong-labs/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a></li>
+              <button 
+                onClick={() => window.dispatchEvent(new Event('openContactPopup'))} 
+                className="hover:text-white transition-colors text-left"
+              >
+                Contact Us
+              </button>
+            </li>
+            <li>
+              <a href="https://lin.ee/W9Y0CXO" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                LINE Official
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/company/fufong-labs/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                LinkedIn
+              </a>
+            </li>
           </ul>
         </div>
       </div>

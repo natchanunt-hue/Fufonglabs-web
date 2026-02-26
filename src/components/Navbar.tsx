@@ -16,13 +16,37 @@ export default function Navbar() {
     return () => window.removeEventListener('openContactPopup', handleOpenContact);
   }, []);
 
-  const handleSendMessage = (e: React.FormEvent) => {
+  // แก้ไขประเภทของ event และเพิ่ม async
+  const handleSendMessage = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsContactOpen(false);
-      setIsSubmitted(false);
-    }, 2500);
+    
+    // ดึงข้อมูลจากฟอร์ม
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      // ส่งข้อมูลไปที่ Formspree
+      const response = await fetch("https://formspree.io/f/xvzblbkv", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsContactOpen(false);
+          setIsSubmitted(false);
+          form.reset(); // ล้างฟอร์มเมื่อส่งเสร็จ
+        }, 2500);
+      } else {
+        alert("เกิดข้อผิดพลาดในการส่งข้อความ กรุณาลองใหม่อีกครั้ง");
+      }
+    } catch (error) {
+      alert("ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้ กรุณาลองใหม่อีกครั้ง");
+    }
   };
 
   return (
@@ -158,16 +182,18 @@ export default function Navbar() {
                   >
                     <div>
                       <label className="block text-xs text-gray-400 mb-1 ml-1">Email</label>
-                      <input type="email" required className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors text-sm" placeholder="your@email.com" />
+                      <input type="email" name="email" required className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors text-sm" placeholder="your@email.com" />
                     </div>
                     <div>
                       <label className="block text-xs text-gray-400 mb-1 ml-1">Phone Number</label>
-                      <input type="tel" required className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors text-sm" placeholder="08x-xxx-xxxx" />
+                      <input type="tel" name="phone" required className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors text-sm" placeholder="08x-xxx-xxxx" />
                     </div>
                     <div>
                       <label className="block text-xs text-gray-400 mb-1 ml-1">Message / Project Details</label>
-                      <textarea rows={4} required className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors text-sm resize-none" placeholder="รายละเอียดเบื้องต้นที่ต้องการให้เราช่วยเหลือ..."></textarea>
+                      <textarea rows={4} name="message" required className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 transition-colors text-sm resize-none" placeholder="รายละเอียดเบื้องต้น..."></textarea>
                     </div>
+                    
+                    <input type="hidden" name="form_type" value="Contact Us" />
                     <button type="submit" className="w-full bg-white text-black font-bold py-3.5 rounded-xl hover:bg-gray-200 transition-colors mt-2 text-sm">
                       Send Message
                     </button>

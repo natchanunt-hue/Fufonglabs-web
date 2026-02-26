@@ -14,13 +14,35 @@ export default function CareersPage() {
     setIsApplyOpen(true);
   };
 
-  const submitApplication = (e: React.FormEvent) => {
+  // แก้ไขประเภทของ event และเพิ่ม async
+  const submitApplication = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsApplyOpen(false);
-      setIsSubmitted(false);
-    }, 2500);
+    
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xvzblbkv", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsApplyOpen(false);
+          setIsSubmitted(false);
+          form.reset(); // ล้างฟอร์ม
+        }, 2500);
+      } else {
+         alert("เกิดข้อผิดพลาดในการส่งใบสมัคร กรุณาลองใหม่อีกครั้ง");
+      }
+    } catch (error) {
+       alert("ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้ กรุณาลองใหม่อีกครั้ง");
+    }
   };
 
   return (
@@ -148,14 +170,22 @@ export default function CareersPage() {
                   </motion.div>
                 ) : (
                   <motion.form key="form" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 10 }} onSubmit={submitApplication} className="space-y-4 relative z-10">
+                    
+                    {/* เพิ่ม Hidden Input 2 ตัว เพื่อส่งตำแหน่งงานและประเภทฟอร์มไปด้วย */}
+                    <input type="hidden" name="form_type" value="Job Application" />
+                    <input type="hidden" name="role_applied_for" value={selectedRole} />
+
                     <div>
-                      <input type="text" required className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors text-sm" placeholder="Full Name" />
+                      {/* เพิ่ม name="name" */}
+                      <input type="text" name="name" required className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors text-sm" placeholder="Full Name" />
                     </div>
                     <div>
-                      <input type="email" required className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors text-sm" placeholder="Email Address" />
+                      {/* เพิ่ม name="email" */}
+                      <input type="email" name="email" required className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors text-sm" placeholder="Email Address" />
                     </div>
                     <div>
-                      <input type="url" required className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors text-sm" placeholder="Portfolio / LinkedIn / GitHub URL" />
+                      {/* เพิ่ม name="portfolio_url" */}
+                      <input type="url" name="portfolio_url" required className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors text-sm" placeholder="Portfolio / LinkedIn / GitHub URL" />
                     </div>
                     <button type="submit" className="w-full bg-white text-black font-bold py-3.5 rounded-xl hover:bg-gray-200 transition-colors mt-2 text-sm">
                       Submit Application
