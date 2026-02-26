@@ -10,7 +10,6 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 md:gap-10 mb-12">
         
         {/* Brand & Professional Address */}
-        {/* 🟢 แก้ไขตรงนี้: เพิ่ม col-span-2 เพื่อให้ส่วนนี้กว้างเต็มจอในมือถือ */}
         <div className="col-span-2 md:col-span-2">
           <h4 className="text-xl font-bold mb-4 tracking-wider text-white">FUFONG LABS CO., LTD.</h4>
           <p className="text-gray-400 text-sm leading-relaxed max-w-md">
@@ -18,6 +17,7 @@ export default function Footer() {
           </p>
           
           <div className="mt-6 space-y-3 text-sm text-gray-500">
+            {/* ที่อยู่ */}
             <div className="flex items-start gap-2">
               <span>📍</span>
               <p>
@@ -26,7 +26,16 @@ export default function Footer() {
               </p>
             </div>
 
-            <div className="pl-6 flex gap-4 text-xs font-semibold uppercase tracking-widest text-emerald-500/80">
+            {/* 🟢 ส่วนที่เพิ่มใหม่: อีเมล */}
+            <div className="flex items-center gap-2">
+              <span>✉️</span>
+              <a href="mailto:contact@fufonglabs.com" className="hover:text-white transition-colors">
+                contact@fufonglabs.com
+              </a>
+            </div>
+
+            {/* สถานะบริษัท */}
+            <div className="pl-7 flex gap-4 text-xs font-semibold uppercase tracking-widest text-emerald-500/80 pt-1">
               <span>Active Entity</span>
               <span>Est. 2022</span>
             </div>

@@ -15,7 +15,7 @@ export default function PrivacyPage() {
 
       <section className="mb-10">
         <h2 className="text-2xl font-bold text-white mb-4">1. ข้อมูลที่เราเก็บรวบรวม</h2>
-        <p className="mb-4">เราเก็บรวบรวมข้อมูลที่คุณให้ไว้กับเราโดยตรงผ่านฟอร์มบนเว็บไซต์ ได้แก่:</p>
+        <p className="mb-4">เราเก็บรวบรวมข้อมูลที่คุณให้ไว้กับเราโดยตรงผ่านฟอร์มบนเว็บไซต์ ได้แก่</p>
         <ul className="list-disc pl-6 space-y-2">
           <li>ข้อมูลการติดต่อ: ชื่อ-นามสกุล, อีเมล, หมายเลขโทรศัพท์</li>
           <li>ข้อมูลการสมัครงาน: ประวัติการทำงาน (Resume), ลิงก์ Portfolio หรือ GitHub</li>
@@ -25,7 +25,7 @@ export default function PrivacyPage() {
 
       <section className="mb-10">
         <h2 className="text-2xl font-bold text-white mb-4">2. วัตถุประสงค์ในการใช้ข้อมูล</h2>
-        <p>เราใช้ข้อมูลส่วนบุคคลของคุณเพื่อวัตถุประสงค์ดังต่อไปนี้:</p>
+        <p>เราใช้ข้อมูลส่วนบุคคลของคุณเพื่อวัตถุประสงค์ดังต่อไปนี้</p>
         <ul className="list-disc pl-6 mt-4 space-y-2">
           <li>เพื่อตอบกลับการติดต่อสอบถามหรือนัดหมายรับคำปรึกษาด้านสถาปัตยกรรมซอฟต์แวร์</li>
           <li>เพื่อพิจารณาคุณสมบัติในการรับเข้าทำงานสำหรับตำแหน่งงานที่เปิดรับ</li>
@@ -38,10 +38,24 @@ export default function PrivacyPage() {
         <p>บริษัทฯ ให้ความสำคัญกับการคุ้มครองข้อมูลส่วนบุคคลตามกฎหมาย PDPA ของประเทศไทย ข้อมูลของคุณจะถูกเก็บรักษาไว้เป็นความลับและจะไม่ถูกเปิดเผยต่อบุคคลภายนอกเพื่อวัตถุประสงค์ทางการค้าโดยไม่ได้รับอนุญาต</p>
       </section>
 
-      <div className="bg-white/5 p-8 rounded-3xl border border-white/10 mt-12 text-sm">
-        <h3 className="text-white font-bold mb-2">สอบถามข้อมูลเพิ่มเติมเกี่ยวกับนโยบายความเป็นส่วนตัว</h3>
-        <p>บริษัท ฟูฟอง แลบส์ จำกัด</p>
-        <p>เลขที่ 9 ซอยเฉลิมพระเกียรติ ร.9 ซ.48 แยก 15 แขวงดอกไม้ เขตประเวศ กรุงเทพมหานคร 10250</p>
+      <div className="bg-white/5 p-8 rounded-3xl border border-white/10 mt-12 text-sm text-gray-400">
+        <h3 className="text-white font-bold mb-3 text-base">สอบถามข้อมูลเพิ่มเติมเกี่ยวกับนโยบายความเป็นส่วนตัว</h3>
+        
+        <p className="text-gray-200 font-semibold mb-1">บริษัท ฟูฟอง แลบส์ จำกัด (Fufong Labs Co., Ltd.)</p>
+        <p className="mb-4 leading-relaxed">
+          เลขที่ 9 ซอยเฉลิมพระเกียรติ ร.9 ซ.48 แยก 15 แขวงดอกไม้ เขตประเวศ กรุงเทพมหานคร 10250
+        </p>
+        
+        {/* ช่องทางการติดต่อ */}
+        <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-white/10">
+          <p className="flex items-center gap-2">
+            <span>✉️</span>
+            <strong className="text-gray-300 font-medium">อีเมล :</strong>
+            <a href="mailto:contact@fufonglabs.com" className="text-indigo-400 hover:text-indigo-300 transition-colors">
+              contact@fufonglabs.com
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );
